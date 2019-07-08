@@ -367,6 +367,11 @@ int main()
     entity_manager entities;
     entities.use_aggregates = false;
 
+    entity* some_default_entity = entities.make_new<entity>();
+
+    some_default_entity->r.init_rectangular({20, 20});
+    some_default_entity->r.position = {100, 100};
+
     sf::Clock read_clock;
 
     steamapi api;
@@ -440,6 +445,9 @@ int main()
 
         ImGui::SFML::Update(window,  imgui_delta.restart());
 
+        entities.cleanup();
+        entities.tick(frametime_dt);
+
         render_cam.screen_size = {window.getSize().x, window.getSize().y};
         render_cam.add_linear_zoom(mouse_delta);
 
@@ -476,6 +484,8 @@ int main()
 
 
         ImGui::SFML::Render(window);
+
+        entities.render(render_cam, window);
 
         window.display();
         window.clear();
