@@ -335,7 +335,7 @@ int main()
     entity_manager entities;
     entities.use_aggregates = false;
 
-    entity* some_default_entity = entities.make_new<entity>();
+    std::shared_ptr<entity> some_default_entity = entities.make_new<entity>();
 
     some_default_entity->r.init_rectangular({20, 20});
     some_default_entity->r.position = {100, 100};
