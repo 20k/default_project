@@ -158,14 +158,14 @@ void server_thread()
 
                 memcpy(&persist_id_saved, &dat.data[0], sizeof(size_t));
 
-                set_next_persistent_id(persist_id_saved);
-
                 std::cout << "loaded pid " << persist_id_saved << std::endl;
             }
         }
 
         if(persist_id_saved < 1024)
             persist_id_saved = 1024;
+
+        set_next_persistent_id(persist_id_saved);
     }
 
     auth_manager<auth_data> auth_manage;
