@@ -263,41 +263,9 @@ void server_thread()
 
             server_data& next_data = data_model.fetch_by_id(i);
 
-            ///write stuff to clients
+            ///write stuff to clients by modifying next_data
 
-            if(data_model.backup.find(i) != data_model.backup.end())
-            {
-                sf::Clock total_encode;
-
-                nlohmann::json ret = serialise_against(next_data, data_model.backup[i], true, stagger_id);
-
-                std::vector<uint8_t> cb = nlohmann::json::to_cbor(ret);
-
-                write_data dat;
-                dat.id = i;
-                dat.data = std::string(cb.begin(), cb.end());
-
-                conn.write_to(dat);
-
-                ///basically clones model, by applying the current diff to last model
-                ///LEAKS MEMORY ON POINTERS
-                deserialise(ret, data_model.backup[i]);
-            }
-            else
-            {
-                nlohmann::json ret = serialise(next_data);
-
-                std::vector<uint8_t> cb = nlohmann::json::to_cbor(ret);
-
-                write_data dat;
-                dat.id = i;
-                dat.data = std::string(cb.begin(), cb.end());
-
-                conn.write_to(dat);
-
-                data_model.backup[i] = server_data();
-                serialisable_clone(next_data, data_model.backup[i]);
-            }
+            data_model.update_client(conn, i, stagger_id);
         }
 
         stagger_id++;
