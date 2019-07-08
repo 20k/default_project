@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="example_project" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/example_project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/example_project" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-std=gnu++2a" />
+			<Add directory="deps" />
+		</Compiler>
+		<Linker>
+			<Add option="-lsfml-graphics-s" />
+			<Add option="-lsfml-window-s" />
+			<Add option="-lsfml-audio-s" />
+			<Add option="-lsfml-system-s" />
+			<Add option="-lfreetype" />
+			<Add option="-lopengl32" />
+			<Add option="-lwinmm" />
+			<Add option="-lgdi32" />
+			<Add option="-lws2_32" />
+			<Add option="-lmswsock" />
+			<Add option="-llmdb" />
+			<Add option="-lopenal" />
+			<Add option="-lflac" />
+			<Add option="-lvorbisenc" />
+			<Add option="-lvorbisfile" />
+			<Add option="-lvorbis" />
+			<Add option="-logg" />
+			<Add library="deps/steamworks_sdk_142/sdk/public/steam/lib/win64/libsdkencryptedappticket64.a" />
+			<Add library="deps/steamworks_sdk_142/sdk/redistributable_bin/win64/libsteam_api64.a" />
+		</Linker>
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<fortran_project />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

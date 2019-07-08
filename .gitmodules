@@ -1,0 +1,21 @@
+[submodule "deps/nentity"]
+	path = deps/nentity
+	url = https://github.com/20k/nentity
+[submodule "deps/networking"]
+	path = deps/networking
+	url = https://github.com/20k/clientservernetworking
+[submodule "deps/nauth"]
+	path = deps/nauth
+	url = https://github.com/20k/nauth
+[submodule "deps/ndb"]
+	path = deps/ndb
+	url = https://github.com/20k/ndb
+[submodule "deps/vec"]
+	path = deps/vec
+	url = https://github.com/20k/funvectormaths
+[submodule "deps/imgui-sfml"]
+	path = deps/imgui-sfml
+	url = https://github.com/20k/imgui-sfml-fork
+[submodule "deps/imgui"]
+	path = deps/imgui
+	url = https://github.com/20k/imgui-fork
