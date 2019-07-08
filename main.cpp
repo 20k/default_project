@@ -353,6 +353,7 @@ int main()
         while(!api.auth_success())
         {
             api.pump_callbacks();
+            sf::sleep(sf::milliseconds(1));
         }
 
         std::vector<uint8_t> vec = api.get_encrypted_token();
